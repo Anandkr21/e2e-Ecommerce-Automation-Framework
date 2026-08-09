@@ -2,12 +2,12 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.ConfigReader;
 
 public class HomePage {
 
     // variable
     private WebDriver driver;
-
 
     // constructor
     public HomePage(WebDriver driver){
@@ -24,6 +24,8 @@ public class HomePage {
     private By apiTesting = By.cssSelector("a[href='/api_list']");
     private By videoTutorial = By.partialLinkText("Video Tutorials");
     private By contactUs = By.cssSelector("a[href='/contact_us']");
+    private By emailInput = By.id("susbscribe_email");
+    private By subscribeButton = By.id("subscribe");
 
 
     // Method
@@ -51,4 +53,9 @@ public class HomePage {
     public void clickContactUs(){
         driver.findElement(contactUs).click();
     }
+    public void clickSubscribeToNewsletter(String email){
+        driver.findElement(emailInput).sendKeys(email);
+        driver.findElement(subscribeButton).click();
+    }
+
 }

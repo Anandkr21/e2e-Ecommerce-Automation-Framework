@@ -1,55 +1,56 @@
 package tests;
 
 import base.BaseClass;
-import org.openqa.selenium.remote.tracing.Propagator;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import utils.ConfigReader;
 
 public class HomePageTest extends BaseClass {
 
+    private HomePage homePage;
+    String email = ConfigReader.getProperty("email");
 
-    @Test
-    public void verifyHomePage(){
-        HomePage homepage = new HomePage(driver);
-        homepage.clickHomePage();
+
+    @BeforeMethod
+    public void setUpPage(){
+        homePage = new HomePage(driver);
     }
-
-    @Test
-    public void verifyProducts(){
-        HomePage homePage = new HomePage(driver);
+    @Test(priority = 1)
+    public void verifyHomePageNavigation(){
+        homePage.clickHomePage();
+    }
+    @Test(priority = 2)
+    public void verifyProductsPageNavigation(){
         homePage.clickProducts();
     }
-    @Test
-    public void verifyCart(){
-        HomePage homePage = new HomePage(driver);
+    @Test(priority = 3)
+    public void verifyCartPageNavigation(){
         homePage.clickCart();
     }
-    @Test
-    public void verifyLogin(){
-        HomePage homePage = new HomePage(driver);
+    @Test(priority = 4)
+    public void verifyLoginPageNavigation(){
         homePage.clickLogin();
     }
-    @Test
-    public void verifyTestCases(){
-        HomePage homePage = new HomePage(driver);
+    @Test(priority = 5)
+    public void verifyTestCasesPageNavigation(){
         homePage.clickTestCases();
-    }@Test
-    public void verifyAPITesting(){
-        HomePage homePage = new HomePage(driver);
+    }
+    @Test(priority = 6)
+    public void verifyAPITestingPageNavigation(){
         homePage.clickAPITesting();
     }
-    @Test
-    public void verifyVideoTutorial(){
-        HomePage homePage = new HomePage(driver);
+    @Test(priority = 7)
+    public void verifyVideoTutorialPageNavigation(){
         homePage.clickVideoTutorial();
     }
-    @Test
-    public void verifyContactUs(){
-        HomePage homePage = new HomePage(driver);
+    @Test(priority = 8)
+    public void verifyContactUsPageNavigation(){
         homePage.clickContactUs();
     }
-
-
-
+    @Test(priority = 9)
+    public void verifySubscription(){
+        homePage.clickSubscribeToNewsletter(email);
+    }
 
 }
