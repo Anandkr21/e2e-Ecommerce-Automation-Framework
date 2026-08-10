@@ -10,7 +10,7 @@ public class SignupPage {
     private WebDriver driver;
 
     // Constructor
-    public  SignupPage(WebDriver driver){
+    public SignupPage(WebDriver driver){
         this.driver = driver;
     }
 
@@ -22,8 +22,8 @@ public class SignupPage {
     private By existingEmailMessage = By.xpath("//p[contains(text(), 'Email Address already exist!')]");
     private By signupButton = By.xpath("//button[text()='Signup']");
 
-    // ================ Account Info Page
 
+    // ================ Account Info Page
     private By maleRadioButton = By.id("id_gender1");
     private By femaleRadioButton = By.id("id_gender2");
     private By passwordInput = By.id("password");
@@ -47,12 +47,11 @@ public class SignupPage {
 
 
     // =================Methods
-
     public void clickSignupNavigation() {
         driver.findElement(loginSignupNavigation).click();
     }
-    public void alertMsg() {
-        driver.findElement(existingEmailMessage);
+    public boolean getExistingEmailMessage() {
+        return driver.findElement(existingEmailMessage).isDisplayed();
     }
     public void enterSignupDetails(String name, String email) {
         driver.findElement(nameInput).sendKeys(name);
@@ -62,7 +61,6 @@ public class SignupPage {
 
 
     // ============ Account Information
-
     public void selectMaleGender() {
         driver.findElement(maleRadioButton).click();
     }
@@ -93,7 +91,6 @@ public class SignupPage {
 
 
     // ============ Address
-
     public void enterFirstName(String firstName) {
         driver.findElement(firstNameInput).sendKeys(firstName);
     }
