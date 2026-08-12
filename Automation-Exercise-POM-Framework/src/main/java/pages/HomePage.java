@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-
 public class HomePage {
 
     // variable
@@ -14,8 +13,7 @@ public class HomePage {
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
-
-
+    
     // Locator
     private By homeLink = By.linkText("Home");
     private By products = By.cssSelector("a[href='/products']");
