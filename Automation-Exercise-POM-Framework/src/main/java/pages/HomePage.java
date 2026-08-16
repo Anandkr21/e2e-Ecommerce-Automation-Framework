@@ -13,7 +13,7 @@ public class HomePage {
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
-    
+
     // Locator
     private By homeLink = By.linkText("Home");
     private By products = By.cssSelector("a[href='/products']");
@@ -28,6 +28,7 @@ public class HomePage {
 
 
     // Method
+
     public void clickHomePage(){
         driver.findElement(homeLink).click();
     }
